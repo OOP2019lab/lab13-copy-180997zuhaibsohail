@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+#pragma once
+
+template <typename T>
+class Pair
+{
+	T values[2];
+public:
+	Pair(T a,T e)
+	{
+		values[0]=a;
+		values[1]=e;
+	}
+	T getmax() const
+	{
+		return (values[0]>values[1]) ? values[0]:values[1];
+	}
+	T getmin() const;
+
+	friend ostream& operator << (ostream& open,const Pair& f)
+	{
+		open<<f.values[0]<<" "<<f.values[1]<<endl;
+		return open;
+	}
+};
+
+//template class pair<double>
+template <typename T>
+T Pair<T>::getmin() const
+{
+	return (values[0]<values[1]) ? values[0]:values[1];
+}
